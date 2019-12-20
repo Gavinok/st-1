@@ -148,7 +148,7 @@ static unsigned int mousebg = 0;
  * Color used to display font attributes when fontconfig selected a font which
  * doesn't match the ones requested.
  */
-static unsigned int defaultattr = 11;
+static unsigned int defaultattr = 13;
 
 /*
  * Xresources preferences to load at startup
@@ -199,8 +199,8 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
-#define TERMMOD (Mod1Mask|ShiftMask)
+#define MODKEY Mod4Mask
+#define TERMMOD (ControlMask|ShiftMask)
 
 MouseKey mkeys[] = {
 	/* button               mask            function        argument */
@@ -247,12 +247,10 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
-	{ TERMMOD,              XK_Up,          zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Down,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_K,           zoom,           {.f = +1} },
-	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },
-	{ TERMMOD,              XK_U,           zoom,           {.f = +2} },
-	{ TERMMOD,              XK_D,           zoom,           {.f = -2} },
+	{ MODKEY,               XK_K,           zoom,           {.f = +1} },
+	{ MODKEY,               XK_J,           zoom,           {.f = -1} },
+	{ MODKEY,               XK_U,           zoom,           {.f = +2} },
+	{ MODKEY,               XK_D,           zoom,           {.f = -2} },
 	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
 	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
@@ -293,7 +291,7 @@ static KeySym mappedkeys[] = { -1 };
  * State bits to ignore when matching key or button events.  By default,
  * numlock (Mod2Mask) and keyboard layout (XK_SWITCH_MOD) are ignored.
  */
-static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
+static uint ignoremod = Mod1Mask|XK_SWITCH_MOD;
 
 /*
  * Override mouse-select while mask is active (when MODE_MOUSE is set).
