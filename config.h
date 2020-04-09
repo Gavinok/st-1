@@ -199,7 +199,7 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
 MouseKey mkeys[] = {
@@ -291,7 +291,7 @@ static KeySym mappedkeys[] = { -1 };
  * State bits to ignore when matching key or button events.  By default,
  * numlock (Mod2Mask) and keyboard layout (XK_SWITCH_MOD) are ignored.
  */
-static uint ignoremod = Mod1Mask|XK_SWITCH_MOD;
+static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
 
 /*
  * Override mouse-select while mask is active (when MODE_MOUSE is set).
