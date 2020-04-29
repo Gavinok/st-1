@@ -202,8 +202,11 @@ static MouseShortcut mshortcuts[] = {
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
+/* Simple implementation of a plumber by jerry rigging externalpipe */
+static char *plumb[] = { "/bin/sh", "-c", "cabl -c", "externalpipe", NULL };
 MouseKey mkeys[] = {
 	/* button               mask            function        argument */
+	{ Button3,              0,      	    externalpipe,   {.v =  plumb} },
 	{ Button4,              ShiftMask,      kscrollup,      {.i =  1} },
 	{ Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
 	{ Button4,              MODKEY,         kscrollup,      {.i =  1} },
